@@ -1,4 +1,9 @@
 # Core Django Settings
+from pathlib import Path
+import environ
+
+env = environ.Env()
+
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
