@@ -1,6 +1,15 @@
 from django.db import models
 from django.contrib.postgres.fields import JSONField
 
+# Domains of projects this assistant can be trained on.
+# Kept minimal as an example set of choices.
+DOMAIN_CHOICES = [
+    ("software", "Software"),
+    ("construction", "Construction"),
+    ("finance", "Finance"),
+    ("general", "General"),
+]
+
 class AIProjectAssistant(models.Model):
     project = models.ForeignKey('projects.Project', on_delete=models.CASCADE)
     last_updated = models.DateTimeField(auto_now=True)
